@@ -24,7 +24,7 @@ export type ViewTarget = 'files' | 'mcp' | 'instances' | 'update';
  */
 export type DeepLinkIntent =
   | { type: 'session'; sessionId: string; directory?: string; messageId?: string }
-  | { type: 'new-session'; directory?: string; projectId?: string; agent?: string; model?: string }
+  | { type: 'new-session'; directory?: string; projectId?: string; agent?: string; model?: string; mode?: 'voice' | 'image' }
   | { type: 'sessions'; filter?: SessionsFilter }
   | { type: 'status' }
   | { type: 'settings'; section?: string }
@@ -94,6 +94,7 @@ export function parseDeepLink(raw: string | null | undefined): DeepLinkIntent | 
         projectId: query.get('project') ?? undefined,
         agent: query.get('agent') ?? undefined,
         model: query.get('model') ?? undefined,
+        mode: query.get('mode') === 'voice' || query.get('mode') === 'image' ? query.get('mode') as 'voice' | 'image' : undefined,
       };
 
     case 'sessions': {
