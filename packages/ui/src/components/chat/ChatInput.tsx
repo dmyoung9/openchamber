@@ -3963,6 +3963,30 @@ const ChatInputComponent: React.FC<ChatInputProps> = ({
         window.dispatchEvent(new CustomEvent('openchamber:dictation-toggle'));
     }, []);
 
+    React.useEffect(() => {
+        if (!isCapacitorApp()) return;
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        const activate = () => {
+            const mode = window.sessionStorage.getItem('openchamber:widget-compose-mode');
+            if (mode !== 'voice' && mode !== 'image') return;
+            if (!useSessionUIStore.getState().newSessionDraft.isOpen) return;
+            window.sessionStorage.removeItem('openchamber:widget-compose-mode');
+            timer = setTimeout(() => {
+                if (mode === 'voice') {
+                    window.dispatchEvent(new CustomEvent('openchamber:dictation-toggle'));
+                } else {
+                    fileInputRef.current?.click();
+                }
+            }, 350);
+        };
+        window.addEventListener('openchamber:widget-compose-request', activate);
+        activate();
+        return () => {
+            window.removeEventListener('openchamber:widget-compose-request', activate);
+            if (timer) clearTimeout(timer);
+        };
+    }, []);
+
     const openMobileAttachSheet = React.useCallback(() => {
         // Same order as handleOpenMobilePanel: mark the sheet open BEFORE the
         // blur so the collapse watcher sees an overlay when the keyboard-close
