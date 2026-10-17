@@ -3969,7 +3969,6 @@ const ChatInputComponent: React.FC<ChatInputProps> = ({
         const activate = () => {
             const mode = window.sessionStorage.getItem('openchamber:widget-compose-mode');
             if (mode !== 'voice' && mode !== 'image') return;
-            if (!useSessionUIStore.getState().newSessionDraft.isOpen) return;
             window.sessionStorage.removeItem('openchamber:widget-compose-mode');
             timer = setTimeout(() => {
                 if (mode === 'voice') {
