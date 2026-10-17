@@ -87,6 +87,10 @@ const execute = (intent: NavigationIntent): boolean => {
     case 'new-session': {
       const store = useSessionUIStore.getState();
       store.openNewSessionDraft();
+      if (intent.mode && typeof window !== 'undefined') {
+        window.sessionStorage.setItem('openchamber:widget-compose-mode', intent.mode);
+        window.dispatchEvent(new Event('openchamber:widget-compose-request'));
+      }
       if (intent.directory || intent.projectId) {
         store.setNewSessionDraftTarget({
           directoryOverride: intent.directory ?? null,
