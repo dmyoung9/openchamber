@@ -1,0 +1,112 @@
+{
+  "chrome_foreground": {
+    "paused": false,
+    "time": 0.002258,
+    "events": [
+      {
+        "name": "play",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 0
+      }
+    ]
+  },
+  "before_reading": {
+    "paused": false,
+    "time": 0.754993,
+    "events": [
+      {
+        "name": "play",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 0
+      }
+    ]
+  },
+  "during_reading": {
+    "paused": true,
+    "time": 0.819902,
+    "events": [
+      {
+        "name": "play",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 0
+      },
+      {
+        "name": "pause",
+        "time": 0.819902
+      }
+    ]
+  },
+  "during_reading_later": {
+    "paused": true,
+    "time": 0.819902,
+    "events": [
+      {
+        "name": "play",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 0
+      },
+      {
+        "name": "pause",
+        "time": 0.819902
+      }
+    ]
+  },
+  "after_reading": {
+    "paused": false,
+    "time": 1.492728,
+    "events": [
+      {
+        "name": "play",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 29.857596
+      },
+      {
+        "name": "playing",
+        "time": 0
+      },
+      {
+        "name": "pause",
+        "time": 0.819902
+      },
+      {
+        "name": "play",
+        "time": 1.087528
+      },
+      {
+        "name": "playing",
+        "time": 1.087528
+      }
+    ]
+  }
+}

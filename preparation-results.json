@@ -1,0 +1,24 @@
+{
+  "during_preparation": {
+    "paused": false,
+    "time": 16.497056
+  },
+  "after_preparation": {
+    "paused": true,
+    "time": 17.759414
+  },
+  "synthesis_failure": {
+    "video": {
+      "paused": false,
+      "time": 18.597483
+    },
+    "reading": false
+  },
+  "browser_unavailable": {
+    "capabilities": {
+      "speechSynthesis": false,
+      "visibility": "visible"
+    },
+    "reading": false
+  }
+}
