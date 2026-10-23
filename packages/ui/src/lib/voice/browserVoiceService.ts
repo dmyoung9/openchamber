@@ -432,7 +432,7 @@ class BrowserVoiceService {
     text: string,
     lang: string,
     onEnd?: SpeechEndCallback,
-    options?: { rate?: number; pitch?: number; volume?: number; voiceName?: string; beforePlayback?: () => Promise<void> }
+    options?: { rate?: number; pitch?: number; volume?: number; voiceName?: string; beforePlayback?: () => Promise<void>; onError?: () => void }
   ): Promise<void> {
     if (!('speechSynthesis' in window)) {
       throw new Error('Speech synthesis not supported');
@@ -506,6 +506,7 @@ class BrowserVoiceService {
 
       utterance.onerror = (event) => {
         this.isSpeaking = false;
+        options?.onError?.();
         console.error('[BrowserVoiceService] Speech synthesis error:', event.error);
 
         // Track autoplay policy violations
